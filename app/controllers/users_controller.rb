@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
-    # 以下のアクションを追加
+
     def new
       @user = User.new
     end
-end
+  
+    def create
+      User.create(user_params)
+    end
+  
+    # 以下のアクションを追加
+    private
+    def user_params
+      params.require(:user).permit(:name, :age)
+    end
+  end
