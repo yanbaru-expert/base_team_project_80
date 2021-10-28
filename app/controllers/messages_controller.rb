@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   def index
+    @messages = Message.order(id: :asc)
   end
 
   def show
