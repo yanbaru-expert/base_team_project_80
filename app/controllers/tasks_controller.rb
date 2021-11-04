@@ -23,6 +23,11 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.update(task_params)
   end
+
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+  end
   private
   def task_params
     params.require(:task).permit(:title, :content)
